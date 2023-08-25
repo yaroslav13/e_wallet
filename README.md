@@ -1,8 +1,8 @@
-# e_wallet
+# EWallet
 
 The project must help people organize their spending.
 
-Before run you must complete next steps.
+**Before run you must complete next steps.**
 
 # Setup FVM
 
@@ -82,7 +82,7 @@ We use the `injectable` and `get_it` packages for Dependency Injection in our pr
 
 ## Key Points
 
-1. **Automatic Injectable Annotations:** The classes `Cubit`, `Interactor`, and `Mapper` are automatically marked as `@injectable` due to our predefined configurations.
+1. **Automatic Injectable Annotations:** The classes `Cubit`, `Interactor`, and `Mapper`, `Api` are automatically marked as `@injectable` due to our predefined configurations.
    This automation heavily relies on adhering to specific naming conventions.
 
 2. **Consistent Naming Conventions:** It's crucial to follow the established naming patterns consistently, as deviations can disrupt the automatic `@injectable` annotation process.
