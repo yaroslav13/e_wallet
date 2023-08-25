@@ -32,10 +32,10 @@ dependencies:
   injectable: ^2.1.2
 
   #firebase services
-  firebase_core: ^2.15.0
-  firebase_auth: ^4.7.1
-  firebase_database: ^10.2.4
-  firebase_crashlytics: ^3.3.4
+  firebase_core: ^2.15.1
+  firebase_auth: ^4.8.0
+  firebase_database: ^10.2.5
+  firebase_crashlytics: ^3.3.5
 
   #local storage
   shared_preferences: ^2.2.0

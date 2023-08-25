@@ -1,4 +1,3 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.e.wallet.e_wallet">
-    <uses-permission android:name="android.permission.INTERNET"/>
+<manifest package="com.e.wallet.e_wallet">
+    <!-- This manifest extends the general one specifically for the Profile mode, used for performance testing and optimization. -->
 </manifest>

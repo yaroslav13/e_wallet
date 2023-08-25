@@ -29,6 +29,13 @@
             {
               "client_id": "817428527461-e9249o12r4lrgul3gs92t2a4ik1ld4a7.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "817428527461-ncpfd5v6klgre8r9fb5lr59b8qhpean8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.e.wallet.eWallet"
+              }
             }
           ]
         }
