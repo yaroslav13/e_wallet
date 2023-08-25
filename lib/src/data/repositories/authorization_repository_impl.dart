@@ -3,7 +3,7 @@ import 'package:e_wallet/src/domain/business_domain/repositories/authorization_r
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: AuthorizationRepository)
-class AuthorizationRepositoryImpl implements AuthorizationRepository {
+final class AuthorizationRepositoryImpl implements AuthorizationRepository {
   AuthorizationRepositoryImpl(this._authorizationApi);
 
   final AuthorizationApi _authorizationApi;

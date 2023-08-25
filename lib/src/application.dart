@@ -6,7 +6,7 @@ import 'package:e_wallet/src/presentation/theme/theme_creator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class EWalletApplication extends StatelessWidget {
+final class EWalletApplication extends StatelessWidget {
   const EWalletApplication({super.key});
 
   @override
