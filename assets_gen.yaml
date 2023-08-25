@@ -1,0 +1,12 @@
+assets_gen:
+  output: src/presentation/resources/images_source.dart
+  with_file_extension_name: true
+  class_name: ImagesSource
+  exclude: [
+    "assets/translations/*",
+    "assets/google_fonts/*",
+  ]
+  code_style: lowerCamelCase
+  format_dart_code: true
+  gen_package_path: false
+  omit_path_levels: 2
