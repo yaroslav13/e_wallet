@@ -1,6 +1,6 @@
 part of 'dependencies_provider.dart';
 
-class _DependenciesInitializationErrorStub extends StatelessWidget {
+final class _DependenciesInitializationErrorStub extends StatelessWidget {
   const _DependenciesInitializationErrorStub();
 
   @override
@@ -18,7 +18,7 @@ class _DependenciesInitializationErrorStub extends StatelessWidget {
 }
 
 ///TODO: made it more beautiful
-class _ErrorStub extends StatelessWidget {
+final class _ErrorStub extends StatelessWidget {
   const _ErrorStub();
 
   @override

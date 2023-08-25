@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class WelcomeScreen extends StatelessWidget {
+final class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
   }
 }
 
-class _WelcomeBanner extends StatelessWidget {
+final class _WelcomeBanner extends StatelessWidget {
   const _WelcomeBanner();
 
   @override
@@ -39,7 +39,7 @@ class _WelcomeBanner extends StatelessWidget {
   }
 }
 
-class _WelcomeText extends StatelessWidget {
+final class _WelcomeText extends StatelessWidget {
   const _WelcomeText();
 
   @override
@@ -69,7 +69,7 @@ class _WelcomeText extends StatelessWidget {
   }
 }
 
-class _NonRepeatableTyperAnimatedText extends StatelessWidget {
+final class _NonRepeatableTyperAnimatedText extends StatelessWidget {
   const _NonRepeatableTyperAnimatedText(
     this.text, {
     this.textStyle,
@@ -95,7 +95,7 @@ class _NonRepeatableTyperAnimatedText extends StatelessWidget {
 }
 
 ///TODO: Implement button.
-class _GetStartedButton extends StatelessWidget {
+final class _GetStartedButton extends StatelessWidget {
   const _GetStartedButton();
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-mixin CubitHelper<B extends BlocBase<S>, S> {
+base mixin CubitHelper<B extends BlocBase<S>, S> {
   Widget observe({
     required BlocWidgetBuilder<S> builder,
     BlocBuilderCondition<S>? buildWhen,
