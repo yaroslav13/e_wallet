@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "817428527461",
+    "project_id": "ewallet-1301",
+    "storage_bucket": "ewallet-1301.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817428527461:android:43e3400d109d7ff520098c",
+        "android_client_info": {
+          "package_name": "com.e.wallet.e_wallet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817428527461-e9249o12r4lrgul3gs92t2a4ik1ld4a7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4m6vR4y8FpH5zeCNK68xlOLbkwi9b6gI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817428527461-e9249o12r4lrgul3gs92t2a4ik1ld4a7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
