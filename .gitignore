@@ -14,7 +14,7 @@ migrate_working_dir/
 *.iml
 *.ipr
 *.iws
-../../Desktop/e_wallet/.idea/
+.idea/
 
 # Flutter/Dart/Pub related
 **/doc/api/
