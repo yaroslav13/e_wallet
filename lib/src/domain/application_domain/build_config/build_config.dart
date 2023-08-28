@@ -1,4 +1,3 @@
-import 'package:e_wallet/src/di/injectable.dart';
 import 'package:e_wallet/src/domain/application_domain/build_config/build_type.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
@@ -11,12 +10,10 @@ class BuildConfig {
   @factoryMethod
   factory BuildConfig() {
     final currentBuildType = BuildType.fromValue(appBuildType);
-    switch (currentBuildType) {
-      case BuildType.dev:
-        return BuildConfig._dev();
-      case BuildType.prod:
-        return BuildConfig._prod();
-    }
+    return switch (currentBuildType) {
+      BuildType.dev => BuildConfig._dev(),
+      BuildType.prod => BuildConfig._prod(),
+    };
   }
 
   const BuildConfig._({

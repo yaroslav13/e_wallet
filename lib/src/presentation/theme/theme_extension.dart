@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class TextTheming {
+final class TextTheming {
   const TextTheming({
     required this.extraBigText,
     required this.bigText,

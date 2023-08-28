@@ -1,4 +1,4 @@
-class _BuildValues {
+abstract final class _BuildValues {
   const _BuildValues._();
 
   static const dev = 'dev';

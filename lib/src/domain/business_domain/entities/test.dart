@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-class Test {
+final class Test {
   const Test();
 }

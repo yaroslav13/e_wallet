@@ -15,7 +15,7 @@ void main() {
 }
 
 @visibleForTesting
-class GlobalServicesWrapper extends StatelessWidget {
+final class GlobalServicesWrapper extends StatelessWidget {
   const GlobalServicesWrapper({
     required this.app,
     required this.onDependenciesReady,

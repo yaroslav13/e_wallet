@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 part 'dependencies_initialization_error_stub.dart';
 
-class DependenciesProvider<T extends DependenciesContainer>
+final class DependenciesProvider<T extends DependenciesContainer>
     extends StatefulWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
@@ -28,7 +28,7 @@ class DependenciesProvider<T extends DependenciesContainer>
   State<DependenciesProvider> createState() => _DependenciesProviderState();
 }
 
-class _DependenciesProviderState<T extends DependenciesContainer>
+final class _DependenciesProviderState<T extends DependenciesContainer>
     extends State<DependenciesProvider<T>> {
   late final _dependencies = _initDependencies();
 
