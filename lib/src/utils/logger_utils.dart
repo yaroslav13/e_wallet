@@ -20,6 +20,7 @@ void _printLog(LogRecord log) {
 
   if (log.stackTrace != null) {
     _printStack(
+      //ignore: avoid-non-null-assertion
       stackTrace: log.stackTrace!,
       maxFrames: 100,
     );

@@ -2,13 +2,14 @@ import 'package:e_wallet/src/di/injectable.dart';
 import 'package:e_wallet/src/presentation/theme/theme_creator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
 part 'dependencies_initialization_error_stub.dart';
 
 final class DependenciesProvider<T extends DependenciesContainer>
-    extends StatefulWidget {
+    extends StatelessWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
     required this.child,
@@ -24,45 +25,34 @@ final class DependenciesProvider<T extends DependenciesContainer>
     return Provider.of<GetIt>(context, listen: false);
   }
 
-  @override
-  State<DependenciesProvider> createState() => _DependenciesProviderState();
-}
-
-final class _DependenciesProviderState<T extends DependenciesContainer>
-    extends State<DependenciesProvider<T>> {
-  late final _dependencies = _initDependencies();
-
   Future<GetIt> _initDependencies() async {
     try {
-      final dependencies = await widget.dependenciesContainer.dependencies;
+      final dependencies = await dependenciesContainer.dependencies;
+
       return dependencies;
     } on Exception {
       rethrow;
     } finally {
-      widget.onDependenciesReady?.call();
+      onDependenciesReady?.call();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<GetIt>(
-      future: _dependencies,
-      builder: (_, snapshot) {
-        if (snapshot.hasError) {
-          return const _DependenciesInitializationErrorStub();
-        }
+    final dependenciesInitializer = useMemoized(() => _initDependencies);
 
-        final data = snapshot.data;
-        if (data != null) {
-          return _GetItProvider(
-            getIt: data,
-            child: widget.child,
-          );
-        } else {
-          return const SizedBox.shrink();
-        }
-      },
-    );
+    //ignore: discarded_futures
+    final dependenciesSnapshot = useFuture(dependenciesInitializer());
+
+    if (dependenciesSnapshot.hasError) {
+      return const _DependenciesInitializationErrorStub();
+    }
+
+    final data = dependenciesSnapshot.data;
+
+    return data != null
+        ? _GetItProvider(getIt: data, child: child)
+        : const SizedBox.shrink();
   }
 }
 

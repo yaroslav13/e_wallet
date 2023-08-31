@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-final class TextTheming {
-  const TextTheming({
+final class _TextTheming {
+  const _TextTheming({
     required this.extraBigText,
     required this.bigText,
     required this.mainText,
@@ -23,10 +23,11 @@ final class TextTheming {
 }
 
 extension ThemeX on BuildContext {
-  TextTheming get textTheme {
+  //ignore:library_private_types_in_public_api
+  _TextTheming get textTheme {
     final textTheme = Theme.of(this).textTheme;
 
-    return TextTheming(
+    return _TextTheming(
       extraBigText: textTheme.displayLarge,
       bigText: textTheme.displayMedium,
       mainText: textTheme.bodyMedium,

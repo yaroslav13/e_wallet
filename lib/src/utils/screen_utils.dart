@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 Widget cubitScreen<T extends Cubit<Object?>>(
   Widget child, {
   RouteSettings? settings,
-  Function(T)? onCreate,
+  void Function(T)? onCreate,
   bool lazy = false,
 }) =>
     CubitHost<T>(
