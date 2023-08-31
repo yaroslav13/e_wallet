@@ -7,25 +7,27 @@ final class CubitHost<T extends Cubit<Object?>> extends StatelessWidget {
     required this.builder,
     this.lazy = false,
     this.onCreate,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final WidgetBuilder builder;
-  final Function(BuildContext, T)? onCreate;
+  final void Function(BuildContext, T)? onCreate;
 
   final bool lazy;
+
+  T _onAttached(BuildContext context) {
+    final getIt = DependenciesProvider.of(context);
+
+    final cubit = getIt.get<T>();
+    onCreate?.call(context, cubit);
+
+    return cubit;
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<T>(
-      create: (context) {
-        final getIt = DependenciesProvider.of(context);
-
-        final cubit = getIt.get<T>();
-        onCreate?.call(context, cubit);
-
-        return cubit;
-      },
+      create: _onAttached,
       lazy: lazy,
       child: Builder(
         builder: builder,

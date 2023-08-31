@@ -1,9 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:e_wallet/src/presentation/features/utils/localization_extension.dart';
 import 'package:e_wallet/src/presentation/resources/images_source.dart';
 import 'package:e_wallet/src/presentation/theme/components_styles/welcome_text_style.dart';
 import 'package:e_wallet/src/presentation/theme/theme_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 final class WelcomeScreen extends StatelessWidget {
@@ -44,7 +44,7 @@ final class _WelcomeText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = AppLocalizations.of(context)!;
+    final localization = context.localizations;
     final style = context.getThemeExtension<WelcomeTextStyle>();
 
     return Flexible(
@@ -81,7 +81,6 @@ final class _NonRepeatableTyperAnimatedText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedTextKit(
-      repeatForever: false,
       isRepeatingAnimation: false,
       animatedTexts: [
         TyperAnimatedText(
@@ -104,7 +103,7 @@ final class _GetStartedButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 35),
       child: ElevatedButton(
         onPressed: () {},
-        child: Text(AppLocalizations.of(context)!.getStarted),
+        child: Text(context.localizations.getStarted),
       ),
     );
   }
