@@ -15,6 +15,8 @@ abstract base class ThemeCreator {
   ThemeData create() {
     return ThemeData.from(
       colorScheme: _colorScheme,
+
+      ///TODO: Add license for font 'Oswald'
       textTheme: GoogleFonts.oswaldTextTheme(_textTheme),
       useMaterial3: false,
     ).copyWith(
@@ -51,52 +53,63 @@ final class _RegularThemeCreator extends ThemeCreator {
   @override
   TextTheme get _textTheme => const TextTheme().copyWith(
         displayLarge: const TextStyle(
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
+          fontSize: 34,
+          fontWeight: FontWeight.w700,
         ),
 
         //Used for the date in the dialog shown by [showDatePicker]
         displayMedium: TextStyle(
           fontSize: 24,
           color: _white,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
+        ),
+        displaySmall: const TextStyle(
+          fontSize: 21,
+          fontWeight: FontWeight.w500,
+        ),
+        headlineLarge: const TextStyle(
+          fontSize: 23,
+          fontWeight: FontWeight.w600,
         ),
         headlineMedium: const TextStyle(
           fontSize: 20,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
-
+        headlineSmall: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
         //Used for material [AppBar.title]
         titleLarge: TextStyle(
           fontSize: 25,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w600,
           color: _cornflowerBlue,
         ),
 
         ///Used for material [ListTile.title]
         titleMedium: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.normal,
+          fontSize: 19,
+          fontWeight: FontWeight.w500,
         ),
         titleSmall: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.normal,
+          fontSize: 17,
+          fontWeight: FontWeight.w400,
         ),
 
         ///Used for material [ElevatedButton, TextButton, OutlinedButton]
         labelLarge: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
         ),
         bodyLarge: const TextStyle(
           fontSize: 22,
-          fontWeight: FontWeight.normal,
+          fontWeight: FontWeight.w400,
         ),
 
         //The default text style for [Material]
         bodyMedium: const TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.normal,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
         ),
       );
 
@@ -116,9 +129,7 @@ final class _RegularThemeCreator extends ThemeCreator {
           borderRadiusWhenDisabled: 5,
         ),
         padding: const MaterialStatePropertyAll(
-          EdgeInsets.symmetric(
-            vertical: 15,
-          ),
+          EdgeInsets.symmetric(vertical: 15),
         ),
       ),
     );
@@ -185,10 +196,8 @@ final class _ButtonElevationStateProperty
 
   @override
   double resolve(Set<MaterialState> states) {
-    if (states.contains(MaterialState.pressed)) {
-      return valueWhenPressed;
-    } else {
-      return valueWhenDisabled;
-    }
+    return states.contains(MaterialState.pressed)
+        ? valueWhenPressed
+        : valueWhenDisabled;
   }
 }
