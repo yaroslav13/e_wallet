@@ -17,6 +17,7 @@ dependencies:
   flutter_svg: 2.0.7
   flutter_native_splash: 2.3.1
   animated_text_kit: 4.2.2
+  # use for local fonts only
   google_fonts: 5.1.0
 
   #state management
@@ -90,3 +91,4 @@ flutter:
 
   assets:
    - assets/images/
+   - assets/google_fonts/
