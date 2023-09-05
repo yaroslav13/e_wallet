@@ -1,4 +1,5 @@
 import 'package:e_wallet/src/di/injectable.dart';
+import 'package:e_wallet/src/presentation/features/utils/localization_extension.dart';
 import 'package:e_wallet/src/presentation/theme/theme_creator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

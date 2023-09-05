@@ -27,7 +27,7 @@ final class _ErrorStub extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text(AppLocalizations.of(context)!.sorryRestartApp),
+          child: Text(context.localizations.sorryRestartApp),
         ),
       ),
     );

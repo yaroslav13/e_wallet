@@ -8,10 +8,12 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 void main() {
   final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const GlobalServicesWrapper(
-    onDependenciesReady: FlutterNativeSplash.remove,
-    app: EWalletApplication(),
-  ));
+  runApp(
+    const GlobalServicesWrapper(
+      onDependenciesReady: FlutterNativeSplash.remove,
+      app: EWalletApplication(),
+    ),
+  );
 }
 
 @visibleForTesting
