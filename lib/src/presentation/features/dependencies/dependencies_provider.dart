@@ -42,8 +42,6 @@ final class DependenciesProvider<T extends DependenciesContainer>
       //ignore: discarded_futures
       future: _initDependencies(),
       builder: (_, snapshot) {
-        print(snapshot.connectionState);
-
         if (snapshot.hasError) {
           return const _DependenciesInitializationErrorStub();
         }
