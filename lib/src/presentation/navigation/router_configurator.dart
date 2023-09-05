@@ -5,7 +5,7 @@ import 'package:e_wallet/src/utils/screen_utils.dart';
 import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 
-@lazySingleton
+@injectable
 final class RouterConfigurator {
   late final config = GoRouter(
     debugLogDiagnostics: true,
