@@ -20,12 +20,12 @@ final class GetItContainer extends DependenciesContainer {
     return _instance;
   }
 
-  const GetItContainer._();
+  GetItContainer._();
 
-  static const GetItContainer _instance = GetItContainer._();
+  static final GetItContainer _instance = GetItContainer._();
 
   @override
-  Future<GetIt> get dependencies => _init();
+  late final Future<GetIt> dependencies = _init();
 
   Future<GetIt> _init() async {
     if (!BuildConfig.isBuildTypeSupported(appBuildType)) {

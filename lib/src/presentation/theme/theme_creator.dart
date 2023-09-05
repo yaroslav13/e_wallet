@@ -21,7 +21,7 @@ abstract base class ThemeCreator {
 
       ///TODO: Add license for font 'Oswald'
       textTheme: GoogleFonts.oswaldTextTheme(_textTheme),
-      useMaterial3: false,
+      useMaterial3: true,
     ).copyWith(
       elevatedButtonTheme: _elevatedButtonTheme,
       extensions: [
@@ -32,7 +32,7 @@ abstract base class ThemeCreator {
 
   ColorScheme get _colorScheme;
 
-  //You could configure everything except font family. It would be 'Nunito'.
+  //You could configure everything except font family. It would be 'Oswald'.
   TextTheme get _textTheme;
 
   ElevatedButtonThemeData get _elevatedButtonTheme;
@@ -45,12 +45,12 @@ final class _RegularThemeCreator extends ThemeCreator {
 
   @override
   ColorScheme get _colorScheme => ColorScheme.light(
-      // primary: _lima,
-      // secondary: _phthaloBlue,
-      // tertiary: _aero,
-      // error: _red,
-      // surface: _aluminum,
-      // onSurface: _lima,
+        primary: _cornflowerBlue,
+        secondary: _fountainBlue,
+        tertiary: _aeroBlue,
+        error: _bittersweet,
+        background: _white,
+        onBackground: _black,
       );
 
   @override
@@ -122,7 +122,6 @@ final class _RegularThemeCreator extends ThemeCreator {
     return ElevatedButtonThemeData(
       style: const ButtonStyle().copyWith(
         enableFeedback: true,
-        foregroundColor: MaterialStateProperty.all(_cornflowerBlue),
         elevation: _ButtonElevationStateProperty(
           valueWhenDisabled: 8,
           valueWhenPressed: 4,
@@ -152,4 +151,8 @@ final class _RegularThemeCreator extends ThemeCreator {
   Color get _cornflowerBlue => const Color(0xff728ae5);
 
   Color get _black => const Color(0xff000000);
+
+  Color get _bittersweet => const Color(0xffff715b);
+
+  Color get _fountainBlue => const Color(0xff5bc7bc);
 }

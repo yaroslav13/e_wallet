@@ -5,14 +5,11 @@ final class _DependenciesInitializationErrorStub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeCreator = DependenciesProvider.of(context).get<ThemeCreator>();
-
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: themeCreator.create(),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const _ErrorStub(),
+      home: _ErrorStub(),
     );
   }
 }

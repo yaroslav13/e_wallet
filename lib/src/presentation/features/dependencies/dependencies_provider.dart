@@ -1,9 +1,7 @@
 import 'package:e_wallet/src/di/injectable.dart';
 import 'package:e_wallet/src/presentation/features/utils/localization_extension.dart';
-import 'package:e_wallet/src/presentation/theme/theme_creator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 
@@ -40,20 +38,24 @@ final class DependenciesProvider<T extends DependenciesContainer>
 
   @override
   Widget build(BuildContext context) {
-    final dependenciesInitializer = useMemoized(() => _initDependencies);
+    return FutureBuilder<GetIt>(
+      //ignore: discarded_futures
+      future: _initDependencies(),
+      builder: (_, snapshot) {
+        print(snapshot.connectionState);
 
-    //ignore: discarded_futures
-    final dependenciesSnapshot = useFuture(dependenciesInitializer());
+        if (snapshot.hasError) {
+          return const _DependenciesInitializationErrorStub();
+        }
 
-    if (dependenciesSnapshot.hasError) {
-      return const _DependenciesInitializationErrorStub();
-    }
-
-    final data = dependenciesSnapshot.data;
-
-    return data != null
-        ? _GetItProvider(getIt: data, child: child)
-        : const SizedBox.shrink();
+        return snapshot.hasData
+            ? _GetItProvider(
+                getIt: snapshot.requireData,
+                child: child,
+              )
+            : const SizedBox.shrink();
+      },
+    );
   }
 }
 
