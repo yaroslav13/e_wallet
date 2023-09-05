@@ -19,6 +19,7 @@ dependencies:
   animated_text_kit: 4.2.2
   # use for local fonts only
   google_fonts: 5.1.0
+  flex_color_scheme: 7.3.1
 
   #state management
   flutter_bloc: 8.1.3
