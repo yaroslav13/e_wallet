@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:injectable/injectable.dart';
 
+part 'specific_state_properties/button_elevation_state_property.dart';
+part 'specific_state_properties/button_shape_state_property.dart';
+
 @injectable
 abstract base class ThemeCreator {
   const ThemeCreator();
@@ -51,6 +54,7 @@ final class _RegularThemeCreator extends ThemeCreator {
       );
 
   @override
+  //ignore: long-method
   TextTheme get _textTheme => const TextTheme().copyWith(
         displayLarge: const TextStyle(
           fontSize: 34,
@@ -148,56 +152,4 @@ final class _RegularThemeCreator extends ThemeCreator {
   Color get _cornflowerBlue => const Color(0xff728ae5);
 
   Color get _black => const Color(0xff000000);
-}
-
-///TODO: Separate it to other file using part/ part of.
-final class _ButtonShapeStateProperty
-    extends MaterialStateProperty<OutlinedBorder> {
-  _ButtonShapeStateProperty({
-    required this.borderRadiusWhenPressed,
-    required this.borderRadiusWhenUntouched,
-    this.borderRadiusWhenDisabled,
-  });
-
-  final double borderRadiusWhenPressed;
-  final double borderRadiusWhenUntouched;
-
-  final double? borderRadiusWhenDisabled;
-
-  @override
-  OutlinedBorder resolve(Set<MaterialState> states) {
-    final double borderRadius;
-
-    final borderRadiusWhenDisabled = this.borderRadiusWhenDisabled;
-    if (states.contains(MaterialState.pressed)) {
-      borderRadius = borderRadiusWhenPressed;
-    } else if (states.contains(MaterialState.disabled) &&
-        borderRadiusWhenDisabled != null) {
-      borderRadius = borderRadiusWhenDisabled;
-    } else {
-      borderRadius = borderRadiusWhenUntouched;
-    }
-
-    return RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(borderRadius),
-    );
-  }
-}
-
-final class _ButtonElevationStateProperty
-    extends MaterialStateProperty<double> {
-  _ButtonElevationStateProperty({
-    required this.valueWhenDisabled,
-    required this.valueWhenPressed,
-  });
-
-  final double valueWhenDisabled;
-  final double valueWhenPressed;
-
-  @override
-  double resolve(Set<MaterialState> states) {
-    return states.contains(MaterialState.pressed)
-        ? valueWhenPressed
-        : valueWhenDisabled;
-  }
 }
