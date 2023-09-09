@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '817428527461',
     projectId: 'ewallet-1301',
     storageBucket: 'ewallet-1301.appspot.com',
-    iosClientId: '817428527461-ncpfd5v6klgre8r9fb5lr59b8qhpean8.apps.googleusercontent.com',
+    iosClientId:
+        '817428527461-ncpfd5v6klgre8r9fb5lr59b8qhpean8.apps.googleusercontent.com',
     iosBundleId: 'com.e.wallet.eWallet',
   );
 }

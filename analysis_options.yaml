@@ -28,6 +28,7 @@ analyzer:
     - "**/*.freezed.dart"
     - "**/*.config.dart"
     - "**/generated/**"
+    - "lib/src/di/modules/firebase_core_module/firebase_options.dart"
 
 dart_code_metrics:
   metrics:
