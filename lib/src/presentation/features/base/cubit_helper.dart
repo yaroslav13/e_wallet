@@ -1,3 +1,4 @@
+import 'package:bloc_effects/bloc_effects.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,5 +45,18 @@ base mixin CubitHelper<B extends BlocBase<S>, S> {
 
   T cubitByType<T extends BlocBase<dynamic>>(BuildContext context) {
     return BlocProvider.of<T>(context);
+  }
+}
+
+base mixin CubitWithEffectsHelper<B extends CubitWithEffects<S, E>, S, E>
+    on CubitHelper<B, S> {
+  Widget listenEffects({
+    required EffectWidgetListener<E> listener,
+    required Widget child,
+  }) {
+    return BlocEffectListener<B, E>(
+      listener: listener,
+      child: child,
+    );
   }
 }
