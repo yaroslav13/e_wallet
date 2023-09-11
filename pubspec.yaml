@@ -48,6 +48,8 @@ dependencies:
 
   #navigation
   go_router: 10.1.2
+  navigator:
+    path: modules/navigator
 
   #log helper
   logging: 1.2.0
