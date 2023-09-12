@@ -1,10 +1,9 @@
 part of '../navigation_controller_extension.dart';
 
-abstract final class _RegEx {
-  _RegEx._();
+abstract final class _PathParameterExtractor {
+  _PathParameterExtractor._();
 
-  static final pathParametersFinderRule =
-      RegExp(r':(\w+)(\((?:\\.|[^\\()])+\))?');
+  static final pattern = RegExp(r':(\w+)(\((?:\\.|[^\\()])+\))?');
 }
 
 final class _NavigationController {
@@ -99,7 +98,7 @@ final class _NavigationController {
   List<String> _extractPathParametersNames(String pattern) {
     final pathParametersNames = <String>[];
 
-    for (final match in _RegEx.pathParametersFinderRule.allMatches(pattern)) {
+    for (final match in _PathParameterExtractor.pattern.allMatches(pattern)) {
       //ignore: avoid-non-null-assertion
       pathParametersNames.add(match[1]!);
     }
@@ -152,7 +151,7 @@ final class _NavigationController {
 
     final buffer = StringBuffer();
     var start = 0;
-    for (final match in _RegEx.pathParametersFinderRule.allMatches(
+    for (final match in _PathParameterExtractor.pattern.allMatches(
       absolutePathPattern,
     )) {
       if (match.start > start) {
