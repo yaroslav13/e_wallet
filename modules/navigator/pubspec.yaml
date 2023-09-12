@@ -1,0 +1,25 @@
+name: navigator
+description: Navigator must help to manage routing in application.
+version: 1.0.0
+
+environment:
+  sdk: '>=3.1.1 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  #dart extensions
+  # TODO: Make module independent from collection
+  collection: 1.17.2
+
+  #navigation
+  go_router: 10.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  #lints
+  flutter_lints: 2.0.0
+  dart_code_metrics: 5.7.6
