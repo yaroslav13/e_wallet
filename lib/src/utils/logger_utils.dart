@@ -7,6 +7,6 @@ void setupPrintLogger({
 }) {
   if (enableLogs) {
     Logger.root.level = Level.ALL;
-    Logger.root.onRecord.listen(interceptor);
+    Logger.root.onRecord.listen((log) => interceptor(log));
   }
 }
