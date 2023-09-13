@@ -20,6 +20,7 @@ final class WelcomeScreen extends StatelessWidget {
             _WelcomeBanner(),
             _WelcomeText(),
             _GetStartedButton(),
+            SizedBox(height: 20),
           ],
         ),
       ),
