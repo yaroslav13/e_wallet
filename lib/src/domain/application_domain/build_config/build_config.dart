@@ -10,6 +10,7 @@ class BuildConfig {
   @factoryMethod
   factory BuildConfig() {
     final currentBuildType = BuildType.fromValue(appBuildType);
+
     return switch (currentBuildType) {
       BuildType.dev => BuildConfig._dev(),
       BuildType.prod => BuildConfig._prod(),
