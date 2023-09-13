@@ -6,8 +6,6 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 abstract interface class DependenciesContainer {
-  const DependenciesContainer();
-
   Future<GetIt> get dependencies;
 }
 
