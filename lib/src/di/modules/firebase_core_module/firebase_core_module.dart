@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 @module
 abstract class FirebaseCoreModule {
   @preResolve
+  @singleton
   Future<FirebaseApp> get firebase => Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
