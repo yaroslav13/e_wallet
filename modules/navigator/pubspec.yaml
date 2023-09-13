@@ -13,7 +13,7 @@ dependencies:
   # TODO: Make module independent from collection
   collection: 1.17.2
 
-  #navigation
+  #core
   go_router: 10.1.2
 
 dev_dependencies:

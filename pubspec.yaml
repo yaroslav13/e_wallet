@@ -53,6 +53,8 @@ dependencies:
 
   #log helper
   logging: 1.2.0
+  logging_interceptor:
+    path: modules/logging_interceptor
 
   #dart extensions
   collection: 1.17.2
