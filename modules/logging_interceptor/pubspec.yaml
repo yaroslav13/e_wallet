@@ -1,0 +1,19 @@
+name: logging_interceptor
+description: This module has to format logs beautiful way.
+version: 1.0.0
+
+environment:
+  sdk: '>=3.1.1 <4.0.0'
+
+dependencies:
+  #core
+  logging: 1.2.0
+
+  #immutable annotation
+  meta: 1.9.1
+
+
+dev_dependencies:
+  #lints
+  flutter_lints: 2.0.0
+  dart_code_metrics: 5.7.6
