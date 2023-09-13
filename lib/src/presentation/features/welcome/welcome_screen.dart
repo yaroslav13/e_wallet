@@ -103,8 +103,9 @@ final class _GetStartedButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 35),
       child: ElevatedButton(
-        onPressed: () =>
-            Future.delayed(const Duration(seconds: 4), () => throw Exception()),
+        onPressed: () {
+          ///TODO: implementation
+        },
         child: Text(context.localizations.getStarted),
       ),
     );
