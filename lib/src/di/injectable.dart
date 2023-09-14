@@ -13,14 +13,15 @@ abstract interface class DependenciesContainer {
   preferRelativeImports: false,
   asExtension: false,
 )
-final class GetItContainer extends DependenciesContainer {
-  factory GetItContainer() {
+final class GlobalDependenciesContainer implements DependenciesContainer {
+  factory GlobalDependenciesContainer() {
     return _instance;
   }
 
-  GetItContainer._();
+  GlobalDependenciesContainer._();
 
-  static final GetItContainer _instance = GetItContainer._();
+  static final GlobalDependenciesContainer _instance =
+      GlobalDependenciesContainer._();
 
   @override
   late final Future<GetIt> dependencies = _init();

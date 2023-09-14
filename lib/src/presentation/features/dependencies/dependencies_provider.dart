@@ -7,17 +7,16 @@ import 'package:provider/provider.dart';
 
 part 'dependencies_initialization_error_stub.dart';
 
-final class DependenciesProvider<T extends DependenciesContainer>
-    extends StatelessWidget {
+final class DependenciesProvider extends StatelessWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
     required this.child,
-    this.onDependenciesReady,
+    this.onDependenciesInitComplete,
     super.key,
   });
 
-  final T dependenciesContainer;
-  final VoidCallback? onDependenciesReady;
+  final DependenciesContainer dependenciesContainer;
+  final VoidCallback? onDependenciesInitComplete;
   final Widget child;
 
   static GetIt of(BuildContext context) {
@@ -32,7 +31,7 @@ final class DependenciesProvider<T extends DependenciesContainer>
     } on Exception {
       rethrow;
     } finally {
-      onDependenciesReady?.call();
+      onDependenciesInitComplete?.call();
     }
   }
 

@@ -14,7 +14,7 @@ void main() {
 
   runApp(
     const GlobalServicesWrapper(
-      onDependenciesReady: FlutterNativeSplash.remove,
+      onDependenciesInitComplete: FlutterNativeSplash.remove,
       app: EWalletApplication(),
     ),
   );
@@ -24,18 +24,18 @@ void main() {
 final class GlobalServicesWrapper extends StatelessWidget {
   const GlobalServicesWrapper({
     required this.app,
-    required this.onDependenciesReady,
+    required this.onDependenciesInitComplete,
     super.key,
   });
 
   final Widget app;
-  final VoidCallback onDependenciesReady;
+  final VoidCallback onDependenciesInitComplete;
 
   @override
   Widget build(BuildContext context) {
     return DependenciesProvider(
-      dependenciesContainer: GetItContainer(),
-      onDependenciesReady: onDependenciesReady,
+      dependenciesContainer: GlobalDependenciesContainer(),
+      onDependenciesInitComplete: onDependenciesInitComplete,
       child: app,
     );
   }
