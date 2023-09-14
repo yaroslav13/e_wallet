@@ -12,12 +12,12 @@ final class DependenciesProvider extends StatelessWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
     required this.child,
-    this.onDependenciesInitComplete,
+    this.whenDependenciesInitComplete,
     super.key,
   });
 
   final DependenciesContainer dependenciesContainer;
-  final VoidCallback? onDependenciesInitComplete;
+  final VoidCallback? whenDependenciesInitComplete;
   final Widget child;
 
   static GetIt of(BuildContext context) {
@@ -32,7 +32,7 @@ final class DependenciesProvider extends StatelessWidget {
     } on Exception {
       rethrow;
     } finally {
-      onDependenciesInitComplete?.call();
+      whenDependenciesInitComplete?.call();
     }
   }
 
@@ -46,7 +46,7 @@ final class DependenciesProvider extends StatelessWidget {
           return const _DependenciesInitializationErrorStub();
         }
 
-        return snapshot.connectionState == ConnectionState.done
+        return snapshot.hasData
             ? _GetItProvider(
                 getIt: snapshot.requireData,
                 child: child,
