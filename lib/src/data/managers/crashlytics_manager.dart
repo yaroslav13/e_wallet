@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:isolate';
 
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
@@ -16,7 +15,6 @@ final class CrashlyticsManager {
   void _init() {
     _captureFlutterErrors();
     _captureAsyncErrors();
-    _captureNonFlutterErrors();
   }
 
   void _captureFlutterErrors() {
@@ -27,28 +25,9 @@ final class CrashlyticsManager {
 
   void _captureAsyncErrors() {
     PlatformDispatcher.instance.onError = (error, stack) {
-      unawaited(_recordFatalError(error, stack));
+      unawaited(_crashlytics.recordError(error, stack, fatal: true));
 
       return true;
     };
-  }
-
-  void _captureNonFlutterErrors() {
-    Isolate.current.addErrorListener(
-      RawReceivePort((dynamic pair) async {
-        final errorAndStacktrace = pair as List<dynamic>;
-        await _recordFatalError(
-          errorAndStacktrace.first,
-          errorAndStacktrace.last as StackTrace?,
-        );
-      }).sendPort,
-    );
-  }
-
-  Future<void> _recordFatalError(
-    dynamic exception,
-    StackTrace? stackTrace,
-  ) {
-    return _crashlytics.recordError(exception, stackTrace, fatal: true);
   }
 }
