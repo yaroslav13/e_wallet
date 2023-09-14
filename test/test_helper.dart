@@ -16,7 +16,7 @@ Widget materialWrapper(Widget child) {
       supportedLocales: AppLocalizations.supportedLocales,
       home: Material(child: child),
     ),
-    onDependenciesReady: () {},
+    onDependenciesInitComplete: () {},
   );
 }
 
