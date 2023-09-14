@@ -7,7 +7,6 @@ import 'package:provider/provider.dart';
 
 part 'dependencies_initialization_error_stub.dart';
 
-///TODO: Change it to Stateful widget to avoid extra rebuilds
 final class DependenciesProvider extends StatelessWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
@@ -46,7 +45,7 @@ final class DependenciesProvider extends StatelessWidget {
           return const _DependenciesInitializationErrorStub();
         }
 
-        return snapshot.hasData
+        return snapshot.connectionState == ConnectionState.done
             ? _GetItProvider(
                 getIt: snapshot.requireData,
                 child: child,
