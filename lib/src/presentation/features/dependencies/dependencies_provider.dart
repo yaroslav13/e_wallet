@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 
 part 'dependencies_initialization_error_stub.dart';
 
+///TODO: Change it to Stateful widget to avoid extra rebuilds
 final class DependenciesProvider extends StatelessWidget {
   const DependenciesProvider({
     required this.dependenciesContainer,
@@ -68,7 +69,6 @@ class _GetItProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider<GetIt>(
-      lazy: false,
       create: (_) => getIt,
       child: child,
     );
