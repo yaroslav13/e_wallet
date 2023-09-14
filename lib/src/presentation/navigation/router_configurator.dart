@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:injectable/injectable.dart';
 import 'package:navigator/navigator.dart';
 
-@injectable
+@lazySingleton
 final class RouterConfigurator {
   late final config = GoRouter(
     debugLogDiagnostics: true,
