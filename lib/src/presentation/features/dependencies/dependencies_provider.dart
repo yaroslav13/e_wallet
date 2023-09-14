@@ -46,7 +46,7 @@ final class DependenciesProvider extends StatelessWidget {
           return const _DependenciesInitializationErrorStub();
         }
 
-        return snapshot.hasData
+        return snapshot.connectionState == ConnectionState.done
             ? _GetItProvider(
                 getIt: snapshot.requireData,
                 child: child,
