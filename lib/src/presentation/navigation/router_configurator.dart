@@ -1,3 +1,4 @@
+import 'package:e_wallet/src/domain/application_domain/build_config/build_config.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_cubit.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_screen.dart';
 import 'package:e_wallet/src/presentation/navigation/routes.dart';
@@ -8,8 +9,12 @@ import 'package:navigator/navigator.dart';
 
 @lazySingleton
 final class RouterConfigurator {
+  RouterConfigurator(this._buildConfig);
+
+  final BuildConfig _buildConfig;
+
   late final config = GoRouter(
-    debugLogDiagnostics: true,
+    debugLogDiagnostics: _buildConfig.enableLogs,
     routes: _defineRoadMap(),
   );
 
