@@ -10,7 +10,7 @@ In order to run EWallet project FVN should be installed. https://fvm.app/docs/ge
 ```
 brew tap leoafarias/fvm
 brew install fvm
-fvm install 3.13.4
+fvm install 3.13.5
 ```
 
 ## Run the code generator script
