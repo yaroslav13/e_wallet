@@ -102,8 +102,4 @@ We use the `injectable` and `get_it` packages for Dependency Injection in our pr
   **Class Name:** Should end with the `Mapper` postfix (e.g., UserMapper).
   **File Name:** Should end with `_mapper.dart` (e.g., user_mapper.dart).
 
-* Api Classes:
-
-  **Class Name:** Should end with the `Api` postfix (e.g., UserApi).
-  **File Name:** Should end with `_api.dart` (e.g., user_api.dart).
 

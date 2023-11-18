@@ -4,5 +4,5 @@ targets:
       injectable_generator:injectable_builder:
         options:
           auto_register: true
-          class_name_pattern: "Cubit$|Interactor$|Mapper$|Api$"
-          file_name_pattern: "_cubit$|_interactor$|_mapper$|_api$"
+          class_name_pattern: "Cubit$|Interactor$|Mapper$"
+          file_name_pattern: "_cubit$|_interactor$|_mapper$"

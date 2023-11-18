@@ -36,10 +36,10 @@ class BuildConfig {
     );
   }
 
+  final bool enableLogs;
+  final bool enableMultiscreenPreview;
+
   static bool isBuildTypeSupported(String name) {
     return BuildType.values.asNameMap().containsKey(name);
   }
-
-  final bool enableLogs;
-  final bool enableMultiscreenPreview;
 }
