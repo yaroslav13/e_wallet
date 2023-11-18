@@ -13,19 +13,17 @@ void main() {
   setupPrintLogger(enableLogs: BuildConfig().enableLogs);
 
   runApp(
-    const GlobalServicesWrapper(
+    const _GlobalServicesWrapper(
       whenDependenciesInitComplete: FlutterNativeSplash.remove,
       app: EWalletApplication(),
     ),
   );
 }
 
-@visibleForTesting
-final class GlobalServicesWrapper extends StatelessWidget {
-  const GlobalServicesWrapper({
+final class _GlobalServicesWrapper extends StatelessWidget {
+  const _GlobalServicesWrapper({
     required this.app,
     required this.whenDependenciesInitComplete,
-    super.key,
   });
 
   final Widget app;
