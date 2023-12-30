@@ -41,13 +41,17 @@ final class _NavigationController {
     PathParameters? pathParameters,
     QueryParameters? queryParameters,
   }) {
-    assert(routesSequence.isNotEmpty, "Routes list can't be empty");
+    assert(
+      routesSequence.isNotEmpty,
+      'The provided routes sequence cannot be empty.',
+    );
     assert(
       routesSequence.first.pathFragment.startsWith('/') &&
           routesSequence.slice(1).every(
                 (path) => !path.pathFragment.startsWith('/'),
               ),
-      'Only first route must be root',
+      "In the routes sequence, only the first route must be a root route (starting with '/'). "
+      "Other routes in the sequence must not start with '/'. ",
     );
 
     final transformedPathParameters = <String, String>{};
@@ -112,7 +116,10 @@ final class _NavigationController {
   ) {
     assert(
       route is QueryParametersSerializer,
-      '$route have to be mixed with QueryParametersSerializers',
+      'The provided ${route.runtimeType} must implement '
+      'QueryParametersSerializer<${queryParameters.runtimeType}>. '
+      'Ensure that the type of [queryParameters] is compatible with the '
+      'expected serializer interface.',
     );
 
     final serializer = route as QueryParametersSerializer;
@@ -126,7 +133,10 @@ final class _NavigationController {
   ) {
     assert(
       route is PathParametersSerializer,
-      '$route have to be mixed with PathParametersSerializer',
+      'The provided ${route.runtimeType} must implement '
+      'PathParametersSerializer<${pathParameters.runtimeType}>. '
+      'Ensure that the type of [pathParameters] is compatible with the '
+      'expected serializer interface.',
     );
 
     final serializer = route as PathParametersSerializer;

@@ -1,4 +1,5 @@
 import 'package:e_wallet/src/domain/application_domain/build_config/build_config.dart';
+import 'package:e_wallet/src/presentation/features/authorization/authorization_screen.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_cubit.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_screen.dart';
 import 'package:e_wallet/src/presentation/navigation/routes.dart';
@@ -23,6 +24,10 @@ final class RouterConfigurator {
       buildRoute(
         route: Routes.welcome,
         builder: (_, __) => cubitScreen<WelcomeCubit>(const WelcomeScreen()),
+      ),
+      buildRoute(
+        route: Routes.authorization,
+        builder: (_, __) => const AuthorizationScreen(),
       ),
     ];
   }

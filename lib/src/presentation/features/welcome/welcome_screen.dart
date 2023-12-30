@@ -3,11 +3,13 @@ import 'package:e_wallet/src/presentation/features/base/cubit_widget_with_effect
 import 'package:e_wallet/src/presentation/features/utils/localization_extension.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_cubit.dart';
 import 'package:e_wallet/src/presentation/features/welcome/welcome_effect.dart';
+import 'package:e_wallet/src/presentation/navigation/routes.dart';
 import 'package:e_wallet/src/presentation/resources/images_source.dart';
 import 'package:e_wallet/src/presentation/theme/components_styles/welcome_text_style.dart';
 import 'package:e_wallet/src/presentation/theme/theme_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:navigator/navigator.dart';
 
 part 'widgets/get_started_button.dart';
 part 'widgets/no_repeatable_typer_animated_text.dart';
@@ -26,6 +28,9 @@ final class WelcomeScreen
       getStartedPressed: (shouldUserBeAuthorized) {
         ///TODO: navigate to [LoginScreen] or [HomeScreen]
         ///depending on [shouldUserBeAuthorized]
+        if (shouldUserBeAuthorized) {
+          context.navigator.navigateNamed(Routes.authorization);
+        }
       },
     );
   }

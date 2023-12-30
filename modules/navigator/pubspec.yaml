@@ -11,7 +11,7 @@ dependencies:
 
   #dart extensions
   # TODO: Make module independent from collection
-  collection: 1.17.2
+  collection: 1.18.0
 
   #core
   go_router: 10.1.2

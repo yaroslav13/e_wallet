@@ -10,7 +10,7 @@ dependencies:
   logging: 1.2.0
 
   #immutable annotation
-  meta: 1.9.1
+  meta: 1.10.0
 
 
 dev_dependencies:
