@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-abstract base class QueryParameters {}
+abstract interface class QueryParameters {
+  Map<String, dynamic> asMap();
+}
