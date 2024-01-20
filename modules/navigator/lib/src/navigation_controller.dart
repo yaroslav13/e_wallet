@@ -1,4 +1,4 @@
-part of '../navigation_controller_extension.dart';
+part of 'navigation_controller_extension.dart';
 
 abstract final class _PathParameterExtractor {
   _PathParameterExtractor._();
@@ -96,8 +96,6 @@ final class _NavigationController {
       ).toString(),
     );
   }
-
-  Uri get currentLocation => GoRouterState.of(_context).uri;
 
   List<String> _extractPathParametersNames(String pattern) {
     final pathParametersNames = <String>[];

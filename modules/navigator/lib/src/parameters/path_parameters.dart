@@ -1,4 +1,6 @@
 import 'package:flutter/foundation.dart';
 
 @immutable
-abstract base class PathParameters {}
+abstract interface class PathParameters {
+  Map<String, String> asMap();
+}
